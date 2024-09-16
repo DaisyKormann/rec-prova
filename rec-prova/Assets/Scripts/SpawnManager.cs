@@ -26,13 +26,25 @@ public class SpawnManager : MonoBehaviourPun
         {
 
            float appleIndex = Random.Range(0, 1);
-           float appleSelected;
+           string appleSelected;
 
             switch(appleIndex)
             {
-                case 0.5:
+                case <= 0.5f:
                     {
+                        appleSelected = "GoldApple";
+                        break;
+                    }
 
+                case > 0.5f and <= 0.8f:
+                    {
+                        appleSelected = "GreenApple";
+                        break;
+                    }
+                case >= 0.8f:
+                    {
+                        appleSelected = "RedApple";
+                        break;
                     }
 
             }
