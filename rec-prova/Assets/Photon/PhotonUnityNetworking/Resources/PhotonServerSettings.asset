@@ -38,8 +38,11 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   RpcList: []
 =======
+=======
+>>>>>>> origin/PlayerController
   RpcList:
   - ClickRpc
   - DestroyRpc
@@ -47,7 +50,10 @@ MonoBehaviour:
   - Fire
   - LoadSceneRPC
   - RespawnSpaceship
+<<<<<<< HEAD
 >>>>>>> GameManager
+=======
+>>>>>>> origin/PlayerController
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0
