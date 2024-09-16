@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class PlayerController : MonoBehaviourPun
 {
     const float speed = 10f;
-    float direction;
+    int direction;
     Rigidbody2D rigidbody2D;
 
     bool playerLocal;
@@ -41,8 +41,15 @@ public class PlayerController : MonoBehaviourPun
         }
         Move();
     }
+    
     void Move()
     {
+        rigidbody2D.velocity = new Vector2(direction * speed, rigidbody2D.velocity.y);
+        Vector3 position = transform.position;
 
+        float screenBoundX = GameManager.Instance.GetScreenBounds().x;
+        position.x = Mathf.Clamp(position.x, -screenBoundX, screenBoundX);
+
+        transform.position = position;
     }
 }
