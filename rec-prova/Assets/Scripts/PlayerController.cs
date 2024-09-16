@@ -52,4 +52,9 @@ public class PlayerController : MonoBehaviourPun
 
         transform.position = position;
     }
+
+    private void OnCollisionEnter2D(Collider2D collision)
+    {
+
+    }
 }
