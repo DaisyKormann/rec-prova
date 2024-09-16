@@ -42,4 +42,22 @@ public class GameManager : MonoBehaviourPun
     {
         
     }
+
+    [PunRPC]
+    private void AddPlayer()
+    {
+        playersInGame++;
+        if (playersInGame == PhotonNetwork.PlayerList.Length)
+        {
+            CreatePlayer();
+        }
+    }
+
+    [PunRPC]
+    public void AddScore(int value)
+    {
+        score += value;
+        UIManager.instance.UpdateScoreText();
+    }
 }
+
