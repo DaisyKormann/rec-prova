@@ -51,7 +51,10 @@ public class SpawnManager : MonoBehaviourPun
 
             }
 
-            applesPrefab = NetworkManager.instance.Instantiate(, new Vector3(-5, 0), Quaternion.identity).GetComponent<Player>();
+            // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
+            NetworkManager.instance.Instantiate(applesPrefab, new Vector2(GameManager.instance.ScreenBounds.x, Random.Range(-2, 2)), Quaternion.identity);
+            timer = cooldown;
+
         }
     }
 
@@ -60,6 +63,5 @@ public class SpawnManager : MonoBehaviourPun
 /*
 
 // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
-// Reinicia o temporizador com o valor de cooldown para controlar o intervalo até o próximo spawn.
 
 */
