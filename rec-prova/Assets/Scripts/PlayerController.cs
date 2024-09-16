@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.Demo.PunBasics;
+using UnityEditor;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviourPun
 {
-    const float velocity = 10f;
-    int direction;
+    const float speed = 10f;
+    float direction;
     Rigidbody2D rigidbody2D;
 
     bool playerLocal;
@@ -17,20 +20,29 @@ public class PlayerController : MonoBehaviourPun
     }
 
     [PunRPC]
-    private void Initialize()
+    void Initialize()
     {
-        if (!photonView.IsMine)
+        playerLocal = photonView.IsMine;
+
+        if (!playerLocal)
         {
             Color color = Color.white;
-            color.a = 0.1f;
-            GetComponent<SpriteRenderer>().color = color;
-          
+            color.a = 0.2f;
+            GetComponent<SpriteRenderer>().color = color; 
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-       
+        if (playerLocal) // Input.GetButtons(KeyCode.A,KeyCode.D) && controllerOn
+        {
+            direction.x = Input.GetKeyDown(KeyCode.A);
+            direction.y = Input.GetKeyDown(KeyCode.D);
+        }
+        Move();
+    }
+    void Move()
+    {
+
     }
 }
