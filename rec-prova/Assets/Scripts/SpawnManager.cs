@@ -58,8 +58,7 @@ public class SpawnManager : MonoBehaviourPun
 
 
             // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
-            NetworkManager.instance.Instantiate(applesPrefab, new Vector2(GameManager.instance.ScreenBounds.x, Random.Range(-2, 2)), Quaternion.identity);
-            timer = cooldown;
+            NetworkManager.instance.Instantiate(applesPrefab[3], new Vector2(GameManager.instance.ScreenBounds.x, Random.Range(-2, 2)), Quaternion.identity); timer = cooldown;
 
 
         }
