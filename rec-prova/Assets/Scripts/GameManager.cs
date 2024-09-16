@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviourPun
     }
     #endregion
 
+
     Vector2 screenBounds;
     int score;
 
