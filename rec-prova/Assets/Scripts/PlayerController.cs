@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviourPun
 
     void Update()
     {
-        if (playerLocal) // Input.GetButtons(KeyCode.A,KeyCode.D) && controllerOn
+        if (playerLocal) 
         {
             direction = Input.GetAxis("Horizontal");
         }
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviourPun
         rigidbody2D.velocity = new Vector2(direction * speed, rigidbody2D.velocity.y);
         Vector3 position = transform.position;
 
-        float screenboundsX = GameManager.Instance.GetScreenBounds().x;
+        float screenboundsX = GameManager.Instance.GetscreenBounds().x;
         position.x = Mathf.Clamp(position.x, -screenboundsX, screenboundsX);
 
         transform.position = position;
@@ -55,9 +55,17 @@ public class PlayerController : MonoBehaviourPun
 
     private void OnCollisionEnter2D(Collider2D collision)
     {
-        if (playerLocal)
+        if (collision.gameObject.CompareTag("Apple") && playerLocal)
         {
-            if (collision.gameObject.tag == "Obstacle")
+            int AppleScoreValue = GetComponent<Apple>().GetScoreValue();
+
+        }
+
+        /* 
+       
+        PhotonView.Get(GameManager.Instance).RPC("AddScore", RpcTarget.All, xScoreValue);
+        PhotonNetwork.Destroy(collision.gameObject); 
+         if (collision.gameObject.tag == "Obstacle")
             {
                 photonView.RPC("ReduceLife", RpcTarget.All);
                 GameManager.instance.photonView.RPC("SetScore", RpcTarget.All, -10);
@@ -66,10 +74,6 @@ public class PlayerController : MonoBehaviourPun
             {
                 GameManager.instance.photonView.RPC("SetScore", RpcTarget.All, 1);
             }
-        }
-        /* 
-        int appleScoreValue = collision.gameObject.GetComponent<Apple>().GetScoreValue();
-        PhotonView.Get(GameManager.Instance).RPC("AddScore", RpcTarget.All, appleScoreValue);
-        PhotonNetwork.Destroy(collision.gameObject); */
+         */
     }
 }
