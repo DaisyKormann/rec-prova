@@ -13,7 +13,6 @@ public class Apple : MonoBehaviourPun
     const float speed = 5f;
     [SerializeField] int score;
     Rigidbody2D rigidbody2D;
-
     public int Score { get => score; set => score = value; }
 
     void Start()
