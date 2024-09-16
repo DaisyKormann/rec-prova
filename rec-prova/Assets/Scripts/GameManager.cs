@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class GameManager : MonoBehaviourPun
 {
@@ -41,6 +42,11 @@ public class GameManager : MonoBehaviourPun
     void Update()
     {
         
+    }
+    private void CreatePlayer()
+    {
+        Player player = NetworkManager.instance.Instantiate(playerPrefabPath, new Vector3(-5, 0), Quaternion.identity).GetComponent<Player>();
+        player.photonView.RPC("Initialize", RpcTarget.All);
     }
 
     [PunRPC]
