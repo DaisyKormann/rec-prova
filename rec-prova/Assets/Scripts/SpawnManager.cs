@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Unity.VisualScripting;
+using Photon.Realtime;
 
 public class SpawnManager : MonoBehaviourPun
 {
@@ -48,35 +50,16 @@ public class SpawnManager : MonoBehaviourPun
                     }
 
             }
+
+            applesPrefab = NetworkManager.instance.Instantiate(, new Vector3(-5, 0), Quaternion.identity).GetComponent<Player>();
         }
     }
 
 }
 
 /*
-{
 
-    {
-        // Se o temporizador chegar a zero ou menos, instancie uma nova maçã.
-        {
-            // Gera um número aleatório entre 0 e 1 para selecionar o tipo de maçã.
+// Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
+// Reinicia o temporizador com o valor de cooldown para controlar o intervalo até o próximo spawn.
 
-            // Variável para armazenar a maçã selecionada.
-
-            // Seleciona o prefab da maçã baseado no valor de appleIndex.
-            {
-                // Se appleIndex for 0.5 ou menos, seleciona o primeiro prefab de maçã.
-
-                // Se appleIndex for entre 0.5 e 0.8, seleciona o segundo prefab.
-
-                // Se appleIndex for maior que 0.8, seleciona o terceiro prefab.
-
-            }
-
-            // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
-
-            // Reinicia o temporizador com o valor de cooldown para controlar o intervalo até o próximo spawn.
-        }
-    }
-}
 */
