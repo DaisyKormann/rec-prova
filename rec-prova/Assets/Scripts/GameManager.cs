@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+
+public class GameManager : MonoBehaviourPun
+{
+    #region Singleton
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+    }
+    #endregion
+
+    Vector2 screenBounds;
+    int score;
+
+    public Vector2 ScreenBounds { get => screenBounds; }
+    public int Score { get => score; set => score = value; }
+
+    const string playerPrefabPath = "Prefabs/Player";
+    int playersInGame = 0;
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
