@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+<<<<<<< HEAD
 using Unity.VisualScripting;
 using Photon.Realtime;
+=======
+>>>>>>> GameManager
 
 public class SpawnManager : MonoBehaviourPun
 {
@@ -38,11 +41,19 @@ public class SpawnManager : MonoBehaviourPun
                         break;
                     }
 
+<<<<<<< HEAD
                 case > 0.5f and <= 0.8f:
+=======
+                case > 0.5f and <= 0.8f :
+>>>>>>> GameManager
                     {
                         appleSelected = "GreenApple";
                         break;
                     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> GameManager
                 case >= 0.8f:
                     {
                         appleSelected = "RedApple";
@@ -50,18 +61,49 @@ public class SpawnManager : MonoBehaviourPun
                     }
 
             }
+<<<<<<< HEAD
 
             // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
             NetworkManager.instance.Instantiate(applesPrefab, new Vector2(GameManager.instance.ScreenBounds.x, Random.Range(-2, 2)), Quaternion.identity);
             timer = cooldown;
 
+=======
+>>>>>>> GameManager
         }
     }
 
 }
 
 /*
+<<<<<<< HEAD
 
 // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
 
+=======
+{
+
+    {
+        // Se o temporizador chegar a zero ou menos, instancie uma nova maçã.
+        {
+            // Gera um número aleatório entre 0 e 1 para selecionar o tipo de maçã.
+
+            // Variável para armazenar a maçã selecionada.
+
+            // Seleciona o prefab da maçã baseado no valor de appleIndex.
+            {
+                // Se appleIndex for 0.5 ou menos, seleciona o primeiro prefab de maçã.
+
+                // Se appleIndex for entre 0.5 e 0.8, seleciona o segundo prefab.
+
+                // Se appleIndex for maior que 0.8, seleciona o terceiro prefab.
+
+            }
+
+            // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
+
+            // Reinicia o temporizador com o valor de cooldown para controlar o intervalo até o próximo spawn.
+        }
+    }
+}
+>>>>>>> GameManager
 */
