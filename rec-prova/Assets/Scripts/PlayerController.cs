@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class PlayerController : MonoBehaviourPun
 {
     const float speed = 10f;
-    int direction;
+    float direction;
     Rigidbody2D rigidbody2D;
 
     bool playerLocal;
@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviourPun
     {
         if (playerLocal) // Input.GetButtons(KeyCode.A,KeyCode.D) && controllerOn
         {
-            direction.x = Input.GetKeyDown(KeyCode.A);
-            direction.y = Input.GetKeyDown(KeyCode.D);
+            direction = Input.GetAxis("Horizontal");
         }
+
         Move();
     }
     
@@ -55,6 +55,21 @@ public class PlayerController : MonoBehaviourPun
 
     private void OnCollisionEnter2D(Collider2D collision)
     {
-
+        if (playerLocal)
+        {
+            if (collision.gameObject.tag == "Obstacle")
+            {
+                photonView.RPC("ReduceLife", RpcTarget.All);
+                GameManager.instance.photonView.RPC("SetScore", RpcTarget.All, -10);
+            }
+            else if (collision.gameObject.tag == "Score")
+            {
+                GameManager.instance.photonView.RPC("SetScore", RpcTarget.All, 1);
+            }
+        }
+        /* 
+        int appleScoreValue = collision.gameObject.GetComponent<Apple>().GetScoreValue();
+        PhotonView.Get(GameManager.Instance).RPC("AddScore", RpcTarget.All, appleScoreValue);
+        PhotonNetwork.Destroy(collision.gameObject); */
     }
 }
