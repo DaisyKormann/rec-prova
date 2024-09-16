@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-<<<<<<< HEAD
 using Unity.VisualScripting;
 using Photon.Realtime;
-=======
->>>>>>> GameManager
 
 public class SpawnManager : MonoBehaviourPun
 {
@@ -41,19 +38,16 @@ public class SpawnManager : MonoBehaviourPun
                         break;
                     }
 
-<<<<<<< HEAD
+
                 case > 0.5f and <= 0.8f:
-=======
-                case > 0.5f and <= 0.8f :
->>>>>>> GameManager
+
                     {
                         appleSelected = "GreenApple";
                         break;
                     }
-<<<<<<< HEAD
-=======
 
->>>>>>> GameManager
+
+
                 case >= 0.8f:
                     {
                         appleSelected = "RedApple";
@@ -61,14 +55,13 @@ public class SpawnManager : MonoBehaviourPun
                     }
 
             }
-<<<<<<< HEAD
+
 
             // Usa o NetworkManager para instanciar a maçã selecionada em uma posição aleatória ao longo do eixo X, no topo da tela.
             NetworkManager.instance.Instantiate(applesPrefab, new Vector2(GameManager.instance.ScreenBounds.x, Random.Range(-2, 2)), Quaternion.identity);
             timer = cooldown;
 
-=======
->>>>>>> GameManager
+
         }
     }
 
@@ -105,5 +98,5 @@ public class SpawnManager : MonoBehaviourPun
         }
     }
 }
->>>>>>> GameManager
+
 */
